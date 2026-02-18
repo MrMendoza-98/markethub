@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Pizza Centro",
+    "description": "Pizzería artesanal con horno de leña",
+    "thumbnail": "https://images.unsplash.com/photo-1601924638867-3ec2f9b7b6c8",
+    "categorySlug": "restaurantes",
+    "email": "contacto@pizzacentro.com",
+    "phone": "573001234567",
+    "whatsapp": "573001234567",
+    "instagram": "pizzacentro",
+    "website": "https://pizzacentro.com",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "name": "Café Urbano",
+    "description": "Café de especialidad y postres artesanales",
+    "thumbnail": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+    "categorySlug": "restaurantes",
+    "email": "info@cafeurbano.com",
+    "phone": "573104567890",
+    "whatsapp": "573104567890",
+    "instagram": "cafeurbano",
+    "website": "https://cafeurbano.com",
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "name": "TechFix Soporte",
+    "description": "Reparación de computadores y laptops",
+    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    "categorySlug": "tecnologia",
+    "email": "soporte@techfix.com",
+    "phone": "573203334455",
+    "whatsapp": "573203334455",
+    "instagram": "techfix",
+    "website": "https://techfix.com",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "name": "Limpieza Total",
+    "description": "Servicios profesionales de limpieza residencial",
+    "thumbnail": "https://images.unsplash.com/photo-1581578731548-c64695cc6952",
+    "categorySlug": "servicios",
+    "email": "contacto@limpiezatotal.com",
+    "phone": "573002223344",
+    "whatsapp": "573002223344",
+    "instagram": "limpiezatotal",
+    "website": "https://limpiezatotal.com",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "name": "Desarrollo Web Pro",
+    "description": "Creación de páginas web para negocios",
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    "categorySlug": "tecnologia",
+    "email": "ventas@webpro.com",
+    "phone": "573115556677",
+    "whatsapp": "573115556677",
+    "instagram": "webpro",
+    "website": "https://webpro.com",
+    "isActive": true
+  }
+]
