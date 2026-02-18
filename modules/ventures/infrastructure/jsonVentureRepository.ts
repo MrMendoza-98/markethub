@@ -16,6 +16,7 @@ export class JsonVentureRepository implements VentureRepository {
       results = results.filter(
         v => v.categorySlug.toLowerCase() === normalized
       )
+      console.log("Filtered by category:", category, results.length)
     }
 
     if (search) {
