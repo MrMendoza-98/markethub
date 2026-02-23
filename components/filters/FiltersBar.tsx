@@ -26,7 +26,7 @@ export function FiltersBar() {
   }
 
   return (
-    <div className="flex gap-3 flex-wrap">
+    <div className="flex items-center gap-3 w-full md:w-auto flex-nowrap">
       <Input
         placeholder="Buscar emprendimiento..."
         defaultValue={searchParams.get("search") || ""}
