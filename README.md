@@ -14,23 +14,42 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 📚 Directorio de Emprendimientos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Aplicación web desarrollada con **Next.js 15** que permite explorar emprendimientos por categoría, con filtros, búsqueda, paginación y experiencia responsive tipo aplicación móvil.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+El proyecto está diseñado con principios **SOLID**, **DRY** y arquitectura modular para facilitar su evolución hacia API o base de datos persistente.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Características
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔎 Exploración
+- Listado de emprendimientos por categoría
+- Vista en **galería** o **lista**
+- Ordenamiento alfabético (A-Z / Z-A)
+- Búsqueda por nombre o descripción
+- Paginación de resultados
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📱 Experiencia Responsive
+- Barra de filtros horizontal en escritorio
+- Barra flotante tipo app en móvil
+- Modales centrados para filtros en pantallas pequeñas
 
-## Deploy on Vercel
+### 🔗 Acciones por emprendimiento
+Cada tarjeta puede tener una acción principal:
+- Enviar email
+- Llamar por teléfono
+- Abrir WhatsApp
+- Abrir Instagram
+- Visitar sitio web
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🧱 Arquitectura
+- Componentes reutilizables con shadcn/ui
+- Separación por capas (domain, application, infrastructure)
+- Repositorio basado en JSON (temporal)
+- Estado sincronizado con URL (SEO friendly)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🏗️ Estructura del Proyecto
