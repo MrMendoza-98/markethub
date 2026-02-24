@@ -6,6 +6,8 @@ import { ViewSwitcher } from "@/components/venture/ViewSwitcher"
 import { VenturesGrid } from "@/components/venture/VenturesGrid"
 import { CategorySelect } from "@/components/venture/CategorySelect"
 import { MobileFiltersBar } from "@/components/mobile/MobileFiltersBar"
+import { Button } from "@/components/ui/button"
+import { Bell } from "lucide-react"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -36,15 +38,27 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   return (
     <>
     <main className="container mx-auto py-10 px-4 pb-24 md:pb-1">
-      <header className="mb-6 space-y-4 hidden md:block">
-        <div>
-          <h1 className="text-2xl font-bold capitalize">{slug}</h1>
-          <p className="text-muted-foreground">
-            {result.total} emprendimientos encontrados
-          </p>
+      <header className="mb-6 space-y-4">
+        <div className="flex items-center justify-between">
+          {/* 🔹 Siempre visible (móvil + desktop) */}
+          <div>
+            <h1 className="text-2xl font-bold capitalize">{slug}</h1>
+            <p className="text-muted-foreground">
+              {result.total} emprendimientos encontrados
+            </p>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="size-10 rounded-full text-foreground hover:bg-card"
+            aria-label="Notifications"
+          >
+            <Bell className="size-5" />
+          </Button>
         </div>
+        {/* 🔹 Solo desktop */}
         <div
-          className="flex items-center gap-4 flex-wrap">
+          className="hidden md:flex items-center gap-4 flex-wrap">
             <CategorySelect slug={slug} />
             <FiltersBar />
             <ViewSwitcher current={view} searchParams={query} />

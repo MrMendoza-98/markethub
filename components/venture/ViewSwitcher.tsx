@@ -27,7 +27,7 @@ export function ViewSwitcher({ current, searchParams }: Props) {
   }
 
   return (
-    <div className="flex gap-2 mb-4">
+    <div className="flex gap-2">
       <Button
         variant={current === "grid" ? "default" : "outline"}
         asChild

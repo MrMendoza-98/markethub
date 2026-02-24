@@ -31,14 +31,14 @@ export function FiltersBar() {
         placeholder="Buscar emprendimiento..."
         defaultValue={searchParams.get("search") || ""}
         onChange={e => updateParam("search", e.target.value)}
-        className="max-w-sm"
+        className="max-w-sm h-10 rounded-xl px-3 py-2 bg-card text-card-foreground border-transparent text-sm placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
       />
 
       <Select
         defaultValue={searchParams.get("sort") || "asc"}
         onValueChange={value => updateParam("sort", value)}
       >
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[180px] h-10 rounded-xl px-3 py-2 bg-card text-card-foreground border-transparent text-sm placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-shadow">
           <SelectValue placeholder="Ordenar" />
         </SelectTrigger>
         <SelectContent>

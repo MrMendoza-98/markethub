@@ -22,7 +22,7 @@ export function CategorySelect({ slug }: { slug: string }) {
     <select
       value={slug}
       onChange={e => handleChange(e.target.value)}
-      className="border rounded-md px-3 py-2 text-sm"
+      className="h-10 rounded-xl px-3 py-2 bg-card text-card-foreground border-transparent text-sm placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
     >
       {categories.map(cat => (
         <option key={cat.id} value={cat.slug}>

@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { getVentureAction } from "@/lib/actions"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { Star, ArrowUpRight } from "lucide-react"
 
 type Props = {
   name: string
@@ -12,6 +14,8 @@ type Props = {
   website?: string
   instagram?: string
   view?: "grid" | "list"
+  rating?: number
+  reviews?: number
 }
 
 export function VentureCard({
@@ -23,7 +27,7 @@ export function VentureCard({
   // ---------- LIST VIEW ----------
   if (view === "list") {
     return (
-      <Card className="hover:shadow-md transition">
+      <Card className="border-transparent shadow-sm py-4 gap-3 cursor-pointer transition-all hover:shadow-md ">
         <CardContent className="flex gap-4 p-4">
           <img
             src={props.thumbnail}
@@ -60,34 +64,54 @@ export function VentureCard({
   // ---------- GRID VIEW (default) ----------
   return (
     <Card className="h-full flex flex-col hover:shadow-md transition">
-      <CardHeader className="p-0">
-        <img
-          src={props.thumbnail}
-          alt={props.name}
-          className="w-full h-40 object-cover rounded-t-xl"
-        />
-      </CardHeader>
+       <CardHeader className="flex items-center justify-between">
+        <Avatar className="size-14 ring-2 ring-primary/20" >
+          <AvatarImage src={props.thumbnail} alt={props.name} />
+          <AvatarFallback className="bg-secondary text-secondary-foreground text-sm">{
+          props.name
+              .split(" ")
+              .map((n) => n[0])
+              .join("")}</AvatarFallback>
+        </Avatar>
 
-      <CardContent className="flex flex-col flex-1 p-4">
-        <CardTitle className="text-lg mb-2">
+        <CardTitle className="text-lg pl-3 mb-2">
           {props.name}
         </CardTitle>
+       </CardHeader>
+       <CardContent className="flex flex-col flex-1 p-4">
 
         <p className="text-sm text-muted-foreground flex-1 line-clamp-3">
           {props.description}
         </p>
 
-        {action && (
-          <Button asChild className="mt-4 w-full">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-0.5">
+              <Star className="size-3.5 fill-warning text-warning" />
+              <span className="text-xs font-semibold text-card-foreground">
+                {props.rating}
+              </span>
+            </div>
+            <span className="text-[10px] text-muted-foreground">
+              {props.reviews} Reviews
+            </span>
+          </div>
+          {action && (
+          <Button asChild 
+            className="size-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
+            aria-label={`View ${props.name} profile`}
+          >
             <a
               href={action.href}
               target={action.external ? "_blank" : undefined}
               rel={action.external ? "noopener noreferrer" : undefined}
             >
-              {action.label}
+
+            <ArrowUpRight className="size-5 text-muted-foreground" />
             </a>
           </Button>
-        )}
+          )}
+        </div>
       </CardContent>
     </Card>
   )

@@ -10,7 +10,9 @@
     "whatsapp": "573001234567",
     "instagram": "pizzacentro",
     "website": "https://pizzacentro.com",
-    "isActive": true
+    "isActive": true,
+    "rating": 5.0,
+    "reviews": 327
   },
   {
     "id": 2,
@@ -23,7 +25,9 @@
     "whatsapp": "573104567890",
     "instagram": "cafeurbano",
     "website": "https://cafeurbano.com",
-    "isActive": true
+    "isActive": true,
+    "rating": 4.8,
+    "reviews": 214
   },
   {
     "id": 3,
@@ -36,7 +40,9 @@
     "whatsapp": "573203334455",
     "instagram": "techfix",
     "website": "https://techfix.com",
-    "isActive": true
+    "isActive": true,
+    "rating": 4.5,
+    "reviews": 89
   },
   {
     "id": 4,
@@ -49,7 +55,9 @@
     "whatsapp": "573002223344",
     "instagram": "limpiezatotal",
     "website": "https://limpiezatotal.com",
-    "isActive": true
+    "isActive": true,
+    "rating": 4.7,
+    "reviews": 156
   },
   {
     "id": 5,
@@ -62,7 +70,9 @@
     "whatsapp": "573115556677",
     "instagram": "webpro",
     "website": "https://webpro.com",
-    "isActive": true
+    "isActive": true,
+    "rating": 4.9,
+    "reviews": 102
   },
   {
   "id": 6,
@@ -75,7 +85,9 @@
   "whatsapp": "573101112233",
   "instagram": "burgerhouse",
   "website": "https://burgerhouse.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.6,
+  "reviews": 198
 },
 {
   "id": 7,
@@ -88,7 +100,9 @@
   "whatsapp": "573104445566",
   "instagram": "sushigo",
   "website": "https://sushigo.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.8,
+  "reviews": 256
 },
 {
   "id": 8,
@@ -101,7 +115,9 @@
   "whatsapp": "573109998877",
   "instagram": "panaderiadelicias",
   "website": "https://delicias.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.9,
+  "reviews": 312
 },
 {
   "id": 9,
@@ -114,7 +130,9 @@
   "whatsapp": "573111223344",
   "instagram": "electricistaexpress",
   "website": "https://electricistaexpress.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.7,
+  "reviews": 123
 },
 {
   "id": 10,
@@ -127,7 +145,9 @@
   "whatsapp": "573112334455",
   "instagram": "plomeriarapida",
   "website": "https://plomeriarapida.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.6,
+  "reviews": 98
 },
 {
   "id": 11,
@@ -140,7 +160,9 @@
   "whatsapp": "573113445566",
   "instagram": "jardinesverdes",
   "website": "https://jardinesverdes.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.8,
+  "reviews": 145
 },
 {
   "id": 12,
@@ -153,7 +175,9 @@
   "whatsapp": "573114556677",
   "instagram": "appstudio",
   "website": "https://appstudio.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.9,
+  "reviews": 78
 },
 {
   "id": 13,
@@ -166,7 +190,9 @@
   "whatsapp": "573115667788",
   "instagram": "cloudsolutions",
   "website": "https://cloudsolutions.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.7,
+  "reviews": 64
 },
 {
   "id": 14,
@@ -179,7 +205,9 @@
   "whatsapp": "573116778899",
   "instagram": "cyberpro",
   "website": "https://cyberpro.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.8,
+  "reviews": 52
 },
 {
   "id": 15,
@@ -192,7 +220,9 @@
   "whatsapp": "573117889900",
   "instagram": "tacosexpress",
   "website": "https://tacosexpress.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.6,
+  "reviews": 189
 },
 {
   "id": 16,
@@ -205,7 +235,9 @@
   "whatsapp": "573118990011",
   "instagram": "reparacioneshogar",
   "website": "https://reparacioneshogar.com",
-  "isActive": true
+  "isActive": true,
+  "rating": 4.5,
+  "reviews": 110
 }
 
 ]
