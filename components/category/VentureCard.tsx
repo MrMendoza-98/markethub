@@ -98,7 +98,7 @@ export function VentureCard({
           </div>
           {action && (
           <Button asChild 
-            className="size-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
+            className="size-14 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
             aria-label={`View ${props.name} profile`}
           >
             <a

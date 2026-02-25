@@ -1,5 +1,5 @@
 [
-  { "id": 1, "name": "Restaurantes", "slug": "restaurantes" },
-  { "id": 2, "name": "Servicios", "slug": "servicios" },
-  { "id": 3, "name": "Tecnología", "slug": "tecnologia" }
+  { "id": 1, "name": "Restaurantes", "slug": "restaurantes", "icon": "Stethoscope", "bgColor": "bg-[oklch(0.92_0.06_140)]", "iconColor": "text-[oklch(0.5_0.14_140)]" },
+  { "id": 2, "name": "Servicios", "slug": "servicios", "icon": "Brain", "bgColor": "bg-[oklch(0.92_0.06_220)]", "iconColor": "text-[oklch(0.5_0.14_220)]" },
+  { "id": 3, "name": "Tecnología", "slug": "tecnologia", "icon": "Microscope", "bgColor": "bg-[oklch(0.92_0.06_315)]", "iconColor": "text-[oklch(0.5_0.14_315)]" }
 ]
