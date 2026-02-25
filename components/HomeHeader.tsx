@@ -1,9 +1,13 @@
-import { Bell } from "lucide-react"
+"use client";
+import { Info, Moon, Sun } from "lucide-react"
 import { Button } from "./ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import Image from "next/image"
+import { useTheme } from "next-themes";
+import Link from "next/link";
 
 export function HomeHeader() {
+  const { setTheme, theme } = useTheme()
     return (
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -22,13 +26,29 @@ export function HomeHeader() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Button 
-            variant="ghost" 
-            size="icon"
-            className="size-10 rounded-full text-foreground hover:bg-card relative"
-            aria-label="Switch theme"
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-9 rounded-full text-foreground hover:bg-card"
+              aria-label="About"
+              asChild
             >
-              <Bell className="h-5 w-5" />
+              <Link href="/about">
+                <Info className="size-[18px]" />
+              </Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-10 rounded-full text-foreground hover:bg-card relative"
+              aria-label="Switch theme"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? (
+                <Sun className="size-5" />
+              ) : (
+                <Moon className="size-5" />
+              )}
             </Button>
             {/* <Avatar className="size-10 ring-2 ring-primary/20">
               <AvatarImage src="/images/doctor-1.jpg" />

@@ -1,18 +1,19 @@
 import { Card } from "@/components/ui/card"
-import  { Stethoscope, Brain, Eye, Heart, Bone, Baby, Microscope, Pill, LucideIcon }  from "lucide-react"
+import  { Stethoscope, Brain, Eye, Heart, Bone, Baby, Microscope, Pill, LucideIcon, Hamburger, Component, Cpu, ShoppingBag, UserStar, Hammer, Book, BookOpen, Forklift, Car }  from "lucide-react"
 import { cn } from "@/lib/utils"
 import categoriesData from "@/data/categories.json"
 import React from "react"
 import Link from "next/link"
 const iconMap: Record<string, LucideIcon> = {
-  Stethoscope,
-  Brain,
-  Eye,
-  Heart,
-  Bone,
-  Baby,
-  Microscope,
-  Pill,
+  Hamburger,
+  Component,
+  Cpu,
+  ShoppingBag,
+  UserStar,
+  Hammer,
+  BookOpen,
+  Forklift,
+  Car
 }
 
 
@@ -34,7 +35,7 @@ export function CategoryGrid() {
             <h2 className="text-base font-bold text-foreground">Categories</h2>
             
           </div>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-3">
             {categoriesData.map((category) => (
               <button
                 key={category.id}

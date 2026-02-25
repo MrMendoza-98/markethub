@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,25 +14,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Directorio",
+  title: "MarketHub",
   description: "Directorio de emprendimientos",
   generator: 'platsmo.com',
   icons: {
      icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/images/SVG/Recurso 1.svg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/images/SVG/Recurso 1.svg',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '/images/SVG/Recurso 1.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/images/SVG/Recurso 1.svg.png',
   }
 }
 
@@ -41,11 +42,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
         {children}
+      </ThemeProvider>
+      <footer className="container flex mx-auto items-center justify-center gap-1.5 text-muted-foreground mb-4">
+        <span className="text-xs">Developed by</span>
+        <span className="text-xs font-semibold text-foreground">Platsmoo</span>
+      </footer>
       </body>
     </html>
   );
