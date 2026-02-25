@@ -10,6 +10,8 @@ type Venture = {
   email?: string
   website?: string
   instagram?: string
+  rating?: number
+  reviews?: number
 }
 
 type Props = {
@@ -61,6 +63,8 @@ export function VenturesGrid({ ventures, view = "grid" }: Props) {
           email={v.email}
           website={v.website}
           instagram={v.instagram}
+          rating={v.rating}
+          reviews={v.reviews}
         />
       ))}
     </div>

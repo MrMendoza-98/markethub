@@ -1,0 +1,49 @@
+import { Card, CardContent } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Star } from "lucide-react"
+import Link from "next/link"
+import  ventures  from "@/data/ventures.json"
+
+export function TopVentures() {
+    return (
+        <section>
+        <div className="flex items-center justify-between mb-3">
+            <h2 className="text-base font-bold text-foreground">Top Empredimientos</h2>
+        </div>
+        <div className="flex gap-3 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide">
+            {ventures.map((venture) => (
+            <Card
+                key={venture.id}
+                className="shrink-0 w-[130px] border-transparent shadow-sm py-4 gap-2 cursor-pointer hover:shadow-md transition-shadow"
+            >
+                <CardContent className="flex flex-col items-center gap-2 px-3">
+                <Avatar className="size-12 ring-2 ring-primary/20">
+                    <AvatarImage src={venture.thumbnail} alt={venture.name} />
+                    <AvatarFallback className="bg-secondary text-secondary-foreground text-xs">
+                    {venture.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
+                </Avatar>
+                <div className="text-center">
+                    <h3 className="font-semibold text-xs text-card-foreground leading-tight text-balance">
+                    {venture.name}
+                    </h3>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">
+                    {venture.description}
+                    </p>
+                </div>
+                <div className="flex items-center gap-0.5">
+                    <Star className="size-3 fill-warning text-warning" />
+                    <span className="text-[10px] font-semibold text-card-foreground">
+                    {venture.rating}
+                    </span>
+                </div>
+                </CardContent>
+            </Card>
+            ))}
+        </div>
+        </section>
+    )
+}
