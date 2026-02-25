@@ -14,7 +14,6 @@ export default async function LobbyPage() {
       <PromoBanner />
       <CategoryGrid />
       <TopVentures />
-      
     </main>
   )
 }

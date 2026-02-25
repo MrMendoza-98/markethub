@@ -17,7 +17,7 @@ export function PromoBanner() {
                         Encuentra negocios por categoría
                     </Button>
                 </div>
-                <div className="w-28 h-32 relative shrink-0">
+                <div className="w-28 h-32 md:w-[30%] md:h-auto relative shrink-0">
                     <Image 
                     src="/images/home-banner.png" 
                     alt="MarketHub" 
