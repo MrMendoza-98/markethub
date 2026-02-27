@@ -65,21 +65,7 @@ export function VentureCard({
           {action && (
 
             <Button asChild size="sm"
-                aria-label={`View ${props.name} profile`}
-                onClick={async (e) => {
-                e.preventDefault();
-                try {
-                  const res = await fetch("/api/venture-reviews", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ id: props.id })
-                  });
-                  if (!res.ok) throw new Error("Error");
-                  window.open(action.href, action.external ? "_blank" : "_self");
-                } catch (err) {
-                  alert("Error al actualizar reviews");
-                }
-                }}>
+                aria-label={`View ${props.name} profile`}>
               <a
                 href={action.href}
                 target={action.external ? "_blank" : undefined}
@@ -122,28 +108,7 @@ export function VentureCard({
           </div>
           <DialogFooter>
             <Button
-              disabled={ratingValue === 0}
-              onClick={async () => {
-                try {
-                  const res = await fetch("/api/venture-reviews", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      id: props.id,
-                      rating: ratingValue,
-                    }),
-                  });
-                  if (!res.ok) throw new Error("Error");
-                  const data = await res.json();
-                  setLocalRating(data.venture.rating ?? localRating);
-                  setLocalReviews(data.venture.reviews ?? localReviews);
-                  setRatingDialogOpen(false);
-                  setRatingValue(0);
-                } catch (err) {
-                  alert("Error al enviar calificación");
-                }
-              }}
-            >
+              disabled={ratingValue === 0}>
               Enviar
             </Button>
           </DialogFooter>
@@ -199,21 +164,7 @@ export function VentureCard({
             {action && (
               <Button asChild 
                 className="size-12 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80 transition-colors"
-                aria-label={`View ${props.name} profile`}
-                onClick={async (e) => {
-                e.preventDefault();
-                try {
-                  const res = await fetch("/api/venture-reviews", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ id: props.id })
-                  });
-                  if (!res.ok) throw new Error("Error");
-                  window.open(action.href, action.external ? "_blank" : "_self");
-                } catch (err) {
-                  alert("Error al actualizar reviews");
-                }
-                }}>
+                aria-label={`View ${props.name} profile`}>
                 <a
                   href={action.href}
                   target={action.external ? "_blank" : undefined}
@@ -248,27 +199,7 @@ export function VentureCard({
           <DialogFooter>
             <Button
               disabled={ratingValue === 0}
-              onClick={async () => {
-                try {
-                  const res = await fetch("/api/venture-reviews", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      id: props.id,
-                      rating: ratingValue,
-                    }),
-                  });
-                  if (!res.ok) throw new Error("Error");
-                  const data = await res.json();
-                  setLocalRating(data.venture.rating ?? localRating);
-                  setLocalReviews(data.venture.reviews ?? localReviews);
-                  setRatingDialogOpen(false);
-                  setRatingValue(0);
-                } catch (err) {
-                  alert("Error al enviar calificación");
-                }
-              }}
-            >
+              >
               Enviar
             </Button>
           </DialogFooter>
