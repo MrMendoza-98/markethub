@@ -1,7 +1,7 @@
 import { VentureCard } from "../category/VentureCard"
 
 type Venture = {
-  id: string | number
+  id: number
   name: string
   description: string
   thumbnail: string
@@ -12,6 +12,7 @@ type Venture = {
   instagram?: string
   rating?: number
   reviews?: number
+  location?: string
 }
 
 type Props = {
@@ -34,6 +35,7 @@ export function VenturesGrid({ ventures, view = "grid" }: Props) {
         {ventures.map(v => (
           <VentureCard
             key={v.id}
+            id={v.id}
             view="list"
             name={v.name}
             description={v.description}
@@ -50,10 +52,11 @@ export function VenturesGrid({ ventures, view = "grid" }: Props) {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {ventures.map(v => (
         <VentureCard
           key={v.id}
+          id={v.id}
           view="grid"
           name={v.name}
           description={v.description}
@@ -65,6 +68,7 @@ export function VenturesGrid({ ventures, view = "grid" }: Props) {
           instagram={v.instagram}
           rating={v.rating}
           reviews={v.reviews}
+          location={v.location}
         />
       ))}
     </div>
