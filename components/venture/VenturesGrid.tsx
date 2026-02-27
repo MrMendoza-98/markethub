@@ -45,6 +45,9 @@ export function VenturesGrid({ ventures, view = "grid" }: Props) {
             email={v.email}
             website={v.website}
             instagram={v.instagram}
+            rating={v.rating}
+            reviews={v.reviews}
+            location={v.location}
           />
         ))}
       </div>

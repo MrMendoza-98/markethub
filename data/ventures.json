@@ -28,7 +28,7 @@
     "website": "https://cafeurbano.com",
     "isActive": true,
     "rating": 4.8,
-    "reviews": 214,
+    "reviews": 216,
     "location": "Centro"
   },
   {
@@ -76,7 +76,7 @@
     "website": "https://webpro.com",
     "isActive": true,
     "rating": 4.9,
-    "reviews": 102,
+    "reviews": 103,
     "location": "La Riviera"
   },
   {
@@ -92,7 +92,7 @@
     "website": "https://burgerhouse.com",
     "isActive": true,
     "rating": 4.6,
-    "reviews": 203,
+    "reviews": 209,
     "location": "La Riviera"
   },
   {
@@ -253,6 +253,22 @@
     "isActive": true,
     "rating": 4.5,
     "reviews": 110,
+    "location": "Los patios"
+  },
+  {
+    "id": 17,
+    "name": "Platsmo",
+    "description": "Empresa de desarrollo de software a medida",
+    "thumbnail": "/images/companies/logo-17.png",
+    "categorySlug": "tecnologia",
+    "email": "info@platsmo.com",
+    "phone": "573209506861",
+    "whatsapp": "573209506861",
+    "instagram": "platsmo",
+    "website": "https://platsmo.com",
+    "isActive": true,
+    "rating": 4.8,
+    "reviews": 8,
     "location": "Los patios"
   }
 ]

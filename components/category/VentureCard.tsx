@@ -1,9 +1,11 @@
 "use client";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { getVentureAction } from "@/lib/actions"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Star, ArrowUpRight, MapPin, MessageCirclePlus } from "lucide-react"
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
 
 type Props = {
   id: number
@@ -26,7 +28,12 @@ export function VentureCard({
   ...props
 }: Props) {
   const action = getVentureAction(props)
+  const [localRating, setLocalRating] = useState(props.rating ?? 0);
+  const [localReviews, setLocalReviews] = useState(props.reviews ?? 0);
 
+  // estado del diálogo de valoración
+  const [ratingDialogOpen, setRatingDialogOpen] = useState(false);
+  const [ratingValue, setRatingValue] = useState(0);
   // ---------- LIST VIEW ----------
   if (view === "list") {
     return (
@@ -46,10 +53,33 @@ export function VentureCard({
             <p className="text-sm text-muted-foreground line-clamp-2">
               {props.description}
             </p>
+            <div className="flex items-center gap-0.5">
+              <MapPin className="size-3.5 text-shadow-emerald-400" />
+              <span className="text-xs font-semibold text-card-foreground">
+                {props.location}
+              </span>
+            </div>
           </div>
 
+          <div className="flex flex-col flex-1">
           {action && (
-            <Button asChild size="sm">
+
+            <Button asChild size="sm"
+                aria-label={`View ${props.name} profile`}
+                onClick={async (e) => {
+                e.preventDefault();
+                try {
+                  const res = await fetch("/api/venture-reviews", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id: props.id })
+                  });
+                  if (!res.ok) throw new Error("Error");
+                  window.open(action.href, action.external ? "_blank" : "_self");
+                } catch (err) {
+                  alert("Error al actualizar reviews");
+                }
+                }}>
               <a
                 href={action.href}
                 target={action.external ? "_blank" : undefined}
@@ -59,7 +89,66 @@ export function VentureCard({
               </a>
             </Button>
           )}
+           <div className="flex items-center gap-2 mt-3"
+             onClick={() => setRatingDialogOpen(true)}>
+              <Star className="size-5 fill-yellow-300 text-yellow-300" />
+              <span className="text-xs font-semibold text-card-foreground">
+                {localRating}
+              </span>
+            </div>
+            <span className="text-xs text-muted-foreground">
+              {localReviews} Reviews
+            </span>
+          </div>
         </CardContent>
+        {/* diálogo para dar una calificación */}
+      <Dialog open={ratingDialogOpen} onOpenChange={setRatingDialogOpen}>
+        <DialogContent className="max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Calificar reseña</DialogTitle>
+          </DialogHeader>
+          <div className="flex justify-center gap-2 my-4">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <Star
+                key={n}
+                className={`size-6 cursor-pointer ${
+                  n <= ratingValue
+                    ? "fill-yellow-300 text-yellow-300"
+                    : "text-muted-foreground"
+                }`}
+                onClick={() => setRatingValue(n)}
+              />
+            ))}
+          </div>
+          <DialogFooter>
+            <Button
+              disabled={ratingValue === 0}
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/venture-reviews", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      id: props.id,
+                      rating: ratingValue,
+                    }),
+                  });
+                  if (!res.ok) throw new Error("Error");
+                  const data = await res.json();
+                  setLocalRating(data.venture.rating ?? localRating);
+                  setLocalReviews(data.venture.reviews ?? localReviews);
+                  setRatingDialogOpen(false);
+                  setRatingValue(0);
+                } catch (err) {
+                  alert("Error al enviar calificación");
+                }
+              }}
+            >
+              Enviar
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       </Card>
     )
   }
@@ -95,14 +184,15 @@ export function VentureCard({
 
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-0.5">
+            <div className="flex items-center gap-0.5"
+             onClick={() => setRatingDialogOpen(true)}>
               <Star className="size-5 fill-yellow-300 text-yellow-300" />
               <span className="text-xs font-semibold text-card-foreground">
-                {props.rating}
+                {localRating}
               </span>
             </div>
             <span className="text-xs text-muted-foreground">
-              {props.reviews} Reviews
+              {localReviews} Reviews
             </span>
           </div>
           <div className="flex gap-2">
@@ -136,6 +226,54 @@ export function VentureCard({
           </div>
         </div>
       </CardContent>
+      {/* diálogo para dar una calificación */}
+      <Dialog open={ratingDialogOpen} onOpenChange={setRatingDialogOpen}>
+        <DialogContent className="max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Calificar reseña</DialogTitle>
+          </DialogHeader>
+          <div className="flex justify-center gap-2 my-4">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <Star
+                key={n}
+                className={`size-6 cursor-pointer ${
+                  n <= ratingValue
+                    ? "fill-yellow-300 text-yellow-300"
+                    : "text-muted-foreground"
+                }`}
+                onClick={() => setRatingValue(n)}
+              />
+            ))}
+          </div>
+          <DialogFooter>
+            <Button
+              disabled={ratingValue === 0}
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/venture-reviews", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      id: props.id,
+                      rating: ratingValue,
+                    }),
+                  });
+                  if (!res.ok) throw new Error("Error");
+                  const data = await res.json();
+                  setLocalRating(data.venture.rating ?? localRating);
+                  setLocalReviews(data.venture.reviews ?? localReviews);
+                  setRatingDialogOpen(false);
+                  setRatingValue(0);
+                } catch (err) {
+                  alert("Error al enviar calificación");
+                }
+              }}
+            >
+              Enviar
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Card>
   )
 }
