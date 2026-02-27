@@ -23,7 +23,8 @@ export class JsonVentureRepository implements VentureRepository {
       const text = search.toLowerCase()
       results = results.filter(v =>
         v.name.toLowerCase().includes(text) ||
-        v.description.toLowerCase().includes(text)
+        v.description.toLowerCase().includes(text) ||
+        v.location.toLowerCase().includes(text)
       )
     }
 

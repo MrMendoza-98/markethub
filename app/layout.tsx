@@ -56,7 +56,7 @@ export default function RootLayout({
       </ThemeProvider>
       <footer className="container flex mx-auto items-center justify-center gap-1.5 text-muted-foreground mb-4">
         <span className="text-xs">Developed by</span>
-        <span className="text-xs font-semibold text-foreground">Platsmoo</span>
+        <span className="text-xs font-semibold text-foreground">Platsmo</span>
       </footer>
       </body>
     </html>
